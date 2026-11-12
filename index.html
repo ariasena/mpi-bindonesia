@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerbang Imajinasi: Media Interaktif Teks Cerita Fantasi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fantasy: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            850: '#3b0764',
+                        },
+                        goldAccent: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7c3aed;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-fantasy-50 font-sans text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header & Navigasi -->
+    <header class="bg-fantasy-850 text-white shadow-xl sticky top-0 z-50 border-b border-purple-500/30">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-goldAccent/20 p-2.5 rounded-xl text-goldAccent border border-goldAccent/30">
+                    <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Gerbang Imajinasi</h1>
+                    <p class="text-xs text-purple-200">Bahasa Indonesia Kelas 7 • Kurikulum Merdeka</p>
+                </div>
+            </div>
+            
+            <!-- Navbar Menu Buttons -->
+            <nav class="flex space-x-1 sm:space-x-2 mt-2 sm:mt-0 overflow-x-auto py-1">
+                <button onclick="switchTab('beranda')" id="btn-beranda" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium transition bg-white/20 text-white flex items-center space-x-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-house"></i><span>Beranda</span>
+                </button>
+                <button onclick="switchTab('literasi')" id="btn-literasi" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium transition text-purple-200 hover:bg-white/10 flex items-center space-x-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-book-open-reader"></i><span>1. Literasi</span>
+                </button>
+                <button onclick="switchTab('materi')" id="btn-materi" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium transition text-purple-200 hover:bg-white/10 flex items-center space-x-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-scroll"></i><span>2. Materi</span>
+                </button>
+                <button onclick="switchTab('game')" id="btn-game" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium transition text-purple-200 hover:bg-white/10 flex items-center space-x-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-puzzle-piece"></i><span>3. Mini-Game</span>
+                </button>
+                <button onclick="switchTab('kuis')" id="btn-kuis" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium transition text-purple-200 hover:bg-white/10 flex items-center space-x-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-award"></i><span>4. Kuis HOTS</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-6xl w-full mx-auto p-4 sm:p-6">
+
+        <!-- TAB 1: BERANDA -->
+        <section id="tab-beranda" class="tab-content fade-in space-y-6">
+            <div class="bg-gradient-to-br from-fantasy-700 via-fantasy-850 to-gray-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden border border-purple-500/20">
+                <div class="absolute right-0 bottom-0 opacity-10 transform translate-x-10 translate-y-10">
+                    <i class="fa-solid fa-dragon text-9xl text-goldAccent"></i>
+                </div>
+                <div class="relative z-10 max-w-2xl">
+                    <span class="bg-goldAccent text-gray-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Bab VII • Kurikulum Merdeka</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-3 mb-4 text-white">Menjelajah Dunia Lewat Teks Cerita Fantasi</h2>
+                    <p class="text-purple-100 text-sm sm:text-base leading-relaxed mb-6">
+                        Mari masuki portal keajaiban! Pelajari struktur magis, bedah unsur intrinsik, susun alur cerita imajinatifmu sendiri, dan taklukkan kuis evaluasi berpikir tingkat tinggi.
+                    </p>
+                    <button onclick="switchTab('literasi')" class="bg-goldAccent hover:bg-amber-400 text-gray-900 font-bold px-6 py-3 rounded-xl shadow-lg transition flex items-center space-x-2">
+                        <span>Mulai Petualangan Magis</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Peta Modul Cepat -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div onclick="switchTab('literasi')" class="bg-white p-5 rounded-2xl shadow-sm border border-purple-100 hover:shadow-md hover:border-fantasy-600 transition cursor-pointer group">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-fantasy-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-1">1. Literasi & Bedah Teks</h3>
+                    <p class="text-xs text-gray-500">Membaca kisah keajaiban & refleksi nalar kritis.</p>
+                </div>
+                <div onclick="switchTab('materi')" class="bg-white p-5 rounded-2xl shadow-sm border border-purple-100 hover:shadow-md hover:border-fantasy-600 transition cursor-pointer group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-scroll"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-1">2. Struktur & Unsur</h3>
+                    <p class="text-xs text-gray-500">Orientasi, Komplikasi, Resolusi, dan Unsur Intrinsik.</p>
+                </div>
+                <div onclick="switchTab('game')" class="bg-white p-5 rounded-2xl shadow-sm border border-purple-100 hover:shadow-md hover:border-fantasy-600 transition cursor-pointer group">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-1">3. Mini-Game Alur</h3>
+                    <p class="text-xs text-gray-500">Menyusun potongan peristiwa cerita fantasi secara runtut.</p>
+                </div>
+                <div onclick="switchTab('kuis')" class="bg-white p-5 rounded-2xl shadow-sm border border-purple-100 hover:shadow-md hover:border-fantasy-600 transition cursor-pointer group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-square-poll-vertical"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-1">4. Kuis Formatif HOTS</h3>
+                    <p class="text-xs text-gray-500">Uji analisis watak dan alur cerita mendalam.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: BAGIAN 1 - LITERASI & BEDAH CONTOH TEKS -->
+        <section id="tab-literasi" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-purple-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="bg-fantasy-600 text-white p-3 rounded-2xl">
+                        <i class="fa-solid fa-book-open-reader text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-fantasy-600 uppercase tracking-wider">Bagian 1: Literasi Kritis</span>
+                        <h2 class="text-2xl font-bold text-gray-800">Kisah Fantasi: "Kacamata Waktu Kakek"</h2>
+                    </div>
+                </div>
+
+                <div class="prose max-w-none text-gray-700 leading-relaxed space-y-4 bg-purple-50/50 p-6 rounded-2xl border border-purple-200">
+                    <p>
+                        Arka menemukan sebuah kacamata tua berlensa safir biru di loteng rumahnya. Kacamata itu milik kakeknya yang seorang penjelajah waktu misterius. Saat Arka mengenakannya di depan cermin kuno, ruangan kamarnya tiba-tiba lenyap.
+                    </p>
+                    <p>
+                        Ia berdiri di tengah hutan kristal yang bercahaya keemasan di bawah langit senja dengan dua bulan sabit kembar. Di hadapannya, seekor rubah perak berbulu api bersuara lembut berkata, <em>"Selamat datang di Era Lumina, Arka. Kau terpilih untuk memulihkan batu waktu sebelum malam abadi tiba."</em> Jantung Arka berdegup kencang antara takut dan takjub. Ia menyadari pilihan kecilnya di dunia ini kini memengaruhi keseimbangan dimensi lain.
+                    </p>
+                </div>
+
+                <!-- Kotak Refleksi Nalar Kritis -->
+                <div class="mt-6 p-6 bg-amber-50 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-900 text-lg mb-2 flex items-center space-x-2">
+                        <i class="fa-solid fa-lightbulb text-goldAccent"></i>
+                        <span>Refleksi Nalar Kritis Siswa:</span>
+                    </h3>
+                    <p class="text-gray-700 text-sm mb-4">
+                        Analisis cuplikan cerita di atas dengan menjawab pertanyaan pemantik berikut:
+                    </p>
+                    <div class="space-y-3">
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-amber-100">
+                            <p class="font-medium text-gray-800 text-sm mb-2">1. Unsur keajaiban apa saja yang tidak mungkin terjadi di dunia nyata pada kutipan cerita tersebut?</p>
+                            <input type="text" placeholder="Tuliskan analisis unsur ajaib di sini..." class="w-full p-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-fantasy-600">
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-amber-100">
+                            <p class="font-medium text-gray-800 text-sm mb-2">2. Menurutmu, apa pesan atau nilai moral yang ingin disampaikan penulis melalui tokoh Arka?</p>
+                            <input type="text" placeholder="Tuliskan pendapat analitis di sini..." class="w-full p-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-fantasy-600">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-end">
+                    <button onclick="switchTab('materi')" class="bg-fantasy-600 hover:bg-fantasy-700 text-white font-bold px-6 py-3 rounded-xl transition flex items-center space-x-2 text-sm shadow-md">
+                        <span>Lanjut ke Materi Struktur & Unsur</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: BAGIAN 2 - PENDALAMAN MATERI -->
+        <section id="tab-materi" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-purple-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="bg-amber-500 text-white p-3 rounded-2xl">
+                        <i class="fa-solid fa-scroll text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Bagian 2: Pendalaman Materi</span>
+                        <h2 class="text-2xl font-bold text-gray-800">Struktur & Unsur Intrinsik Cerita Fantasi</h2>
+                    </div>
+                </div>
+
+                <p class="text-gray-600 text-sm mb-6">
+                    Cerita fantasi dibangun atas struktur alur yang khas dan unsur intrinsik yang membuat dunia imajinasi terasa hidup. Pelajari ringkasan berikut:
+                </p>
+
+                <!-- Grid Materi -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    
+                    <!-- Struktur Teks -->
+                    <div class="bg-purple-50/50 p-6 rounded-2xl border border-purple-200 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-fantasy-600 text-white flex items-center justify-center font-bold">1</div>
+                                <h3 class="text-xl font-bold text-purple-950">Struktur Cerita Fantasi</h3>
+                            </div>
+                            <ul class="space-y-3 text-xs sm:text-sm text-gray-700">
+                                <li class="bg-white p-3 rounded-xl border border-purple-100">
+                                    <strong>Orientasi:</strong> Pengenalan tokoh, latar tempat, waktu, dan suasana dunia fantasi (awal cerita).
+                                 </li>
+                                <li class="bg-white p-3 rounded-xl border border-purple-100">
+                                    <strong>Komplikasi:</strong> Munculnya masalah, konflik, atau rintangan ajaib yang mulai dialami tokoh utama.
+                                </li>
+                                <li class="bg-white p-3 rounded-xl border border-purple-100">
+                                    <strong>Resolusi:</strong> Penyelesaian masalah atau solusi ajaib atas konflik yang terjadi (akhir cerita).
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Unsur Intrinsik -->
+                    <div class="bg-amber-50/50 p-6 rounded-2xl border border-amber-200 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold">2</div>
+                                <h3 class="text-xl font-bold text-amber-950">Unsur Intrinsik Utama</h3>
+                            </div>
+                            <ul class="space-y-3 text-xs sm:text-sm text-gray-700">
+                                <li class="bg-white p-3 rounded-xl border border-amber-100">
+                                    <strong>Tema & Keajaiban:</strong> Ide pokok cerita yang mengandung unsur supranatural/tidak masuk akal.
+                                </li>
+                                <li class="bg-white p-3 rounded-xl border border-amber-100">
+                                    <strong>Tokoh & Penokohan:</strong> Karakter manusia atau makhluk gaib dengan watak khusus.
+                                </li>
+                                <li class="bg-white p-3 rounded-xl border border-amber-100">
+                                    <strong>Latar (Setting):</strong> Tempat lintas dimensi, waktu lampau/masa depan, dan suasana magis.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex justify-between">
+                    <button onclick="switchTab('literasi')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Kembali
+                    </button>
+                    <button onclick="switchTab('game')" class="bg-fantasy-600 hover:bg-fantasy-700 text-white font-bold px-6 py-2.5 rounded-xl transition flex items-center space-x-2 text-sm shadow-md">
+                        <span>Lanjut ke Mini-Game Alur Cerita</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: BAGIAN 3 - MINI-GAME (MISI MENYUSUN ALUR CERITA FANTASI) -->
+        <section id="tab-game" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-purple-100">
+                <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-indigo-600 text-white p-3 rounded-2xl">
+                            <i class="fa-solid fa-puzzle-piece text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Bagian 3: Gamifikasi Interaktif</span>
+                            <h2 class="text-2xl font-bold text-gray-800">Misi: Menyusun Alur Cerita Fantasi</h2>
+                        </div>
+                    </div>
+                    <!-- Skor & Status -->
+                    <div class="flex items-center space-x-4 bg-purple-50 px-4 py-2 rounded-xl border border-purple-200">
+                        <div class="text-center">
+                            <span class="text-xs text-gray-500 block">Poin Petualangan</span>
+                            <span id="game-score" class="font-bold text-fantasy-600 text-lg">0</span>
+                        </div>
+                        <div class="h-6 w-px bg-purple-200"></div>
+                        <div class="text-center">
+                            <span class="text-xs text-gray-500 block">Tantangan</span>
+                            <span id="game-progress" class="font-bold text-gray-800 text-sm">1 / 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kontainer Game Alur -->
+                <div id="game-container" class="bg-purple-50/50 p-6 rounded-2xl border border-purple-200 space-y-6">
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-purple-100">
+                        <span id="game-stage-badge" class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-md">Susun Struktur</span>
+                        <p id="game-instruction" class="text-gray-800 font-bold text-base mt-3 leading-relaxed">
+                            Pilih potongan kalimat yang tepat untuk menyusun bagian awal (Orientasi) dari sebuah cerita fantasi!
+                        </p>
+                    </div>
+
+                    <!-- Pilihan Kartu Kalimat Acak -->
+                    <div id="game-options" class="grid grid-cols-1 gap-3">
+                        <!-- Diisi via JavaScript -->
+                    </div>
+
+                    <!-- Feedback / Umpan Balik -->
+                    <div id="game-feedback" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+                </div>
+
+                <!-- Tampilan Selesai Game -->
+                <div id="game-complete" class="hidden text-center py-8 space-y-4">
+                    <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-3xl mx-auto shadow-sm">
+                        <i class="fa-solid fa-crown text-goldAccent"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Luar Biasa! Alur Cerita Tersusun Runtut</h3>
+                    <p id="game-final-message" class="text-gray-600 text-sm max-w-md mx-auto">
+                        Kamu telah menguasai penyusunan struktur Orientasi, Komplikasi, dan Resolusi dalam teks cerita fantasi!
+                    </p>
+                    <div class="pt-4 flex justify-center space-x-3">
+                        <button onclick="resetGame()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold px-5 py-2.5 rounded-xl transition text-sm">
+                            <i class="fa-solid fa-rotate-right mr-1"></i> Main Lagi
+                        </button>
+                        <button onclick="switchTab('kuis')" class="bg-fantasy-600 hover:bg-fantasy-700 text-white font-bold px-6 py-2.5 rounded-xl transition text-sm shadow-md">
+                            Lanjut ke Kuis HOTS <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="switchTab('materi')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Kembali
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: BAGIAN 4 - KUIS FORMATIF EVALUASI HOTS -->
+        <section id="tab-kuis" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-purple-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="bg-emerald-600 text-white p-3 rounded-2xl">
+                        <i class="fa-solid fa-award text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Bagian 4: Evaluasi Formatif</span>
+                        <h2 class="text-2xl font-bold text-gray-800">Kuis HOTS Analisis Teks Cerita Fantasi</h2>
+                    </div>
+                </div>
+
+                <p class="text-gray-600 text-sm mb-6">
+                    Jawablah 5 soal pilihan ganda berbasis penalaran analitis (Higher Order Thinking Skills) berikut untuk menguji pemahaman teks cerita fantasi.
+                </p>
+
+                <!-- Daftar Soal Kuis -->
+                <div id="quiz-container" class="space-y-6">
+                    
+                    <!-- Soal 1 -->
+                    <div class="bg-purple-50/50 p-5 rounded-2xl border border-purple-200 space-y-3 quiz-card" data-qid="0">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-fantasy-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 1 dari 5</span>
+                            <span class="text-xs text-gray-500 font-medium">Level: Analisis Struktur (HOTS)</span>
+                        </div>
+                        <p class="font-bold text-gray-800 text-sm sm:text-base">
+                            Cermati bagian cerita: <em>"Di sebuah gua bercahaya biru, Kirana terkurung bersama naga kecil yang terluka. Pintu keluar satu-satunya tertutup batu sihir raksasa."</em> Bagian struktur teks apakah kutipan tersebut?
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q0" value="0" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">A. Orientasi, karena memperkenalkan tempat baru.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q0" value="1" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">B. Komplikasi, karena mulai muncul masalah atau rintangan yang menegangkan.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q0" value="2" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">C. Resolusi, karena masalah telah tuntas diselesaikan.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q0" value="3" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">D. Koda, karena berisi pesan moral cerita.</span>
+                            </label>
+                        </div>
+                        <div id="expl-0" class="hidden p-3 rounded-lg text-xs mt-2 bg-purple-100 border border-purple-300 text-purple-950">
+                            <strong>Analisis:</strong> Jawaban benar adalah <strong>B</strong>. Kutipan tersebut menunjukkan masalah genting (terkurung dan pintu tertutup), yang merupakan ciri struktur komplikasi.
+                        </div>
+                    </div>
+
+                    <!-- Soal 2 -->
+                    <div class="bg-purple-50/50 p-5 rounded-2xl border border-purple-200 space-y-3 quiz-card" data-qid="1">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-fantasy-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 2 dari 5</span>
+                            <span class="text-xs text-gray-500 font-medium">Level: Pemahaman Jenis Fantasi</span>
+                        </div>
+                        <p class="font-bold text-gray-800 text-sm sm:text-base">
+                            Sebuah cerita mengisahkan seorang anak sekolah biasa yang tiba-tiba masuk ke dunia sihir penuh peri melalui lemari pakaian di kamarnya. Berdasarkan latar tempatnya, jenis cerita fantasi tersebut adalah...
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q1" value="0" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">A. Cerita fantasi total (seluruh latar di dunia khayalan).</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q1" value="1" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">B. Cerita fantasi irisan (memadukan dunia nyata dan dunia gaib/fantasi).</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q1" value="2" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">C. Cerita sejarah fiksi non-magis.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q1" value="3" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">D. Dongeng binatang (fabel).</span>
+                            </label>
+                        </div>
+                        <div id="expl-1" class="hidden p-3 rounded-lg text-xs mt-2 bg-purple-100 border border-purple-300 text-purple-950">
+                            <strong>Analisis:</strong> Jawaban benar adalah <strong>B</strong>. Disebut fantasi irisan karena menggunakan latar dunia nyata (kamar/sekolah) yang beririsan dengan dunia fantasi (lemah sihir/peri).
+                        </div>
+                    </div>
+
+                    <!-- Soal 3 -->
+                    <div class="bg-purple-50/50 p-5 rounded-2xl border border-purple-200 space-y-3 quiz-card" data-qid="2">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-fantasy-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 3 dari 5</span>
+                            <span class="text-xs text-gray-500 font-medium">Level: Analisis Unsur Kebahasaan</span>
+                        </div>
+                        <p class="font-bold text-gray-800 text-sm sm:text-base">
+                            Perhatikan kalimat berikut: <em>"Tiba-tiba, tongkat kristal itu memancarkan cahaya ungu menyilaukan dan merubah batu karang menjadi sekumpulan kupu-kupu emas."</em> Penggunaan unsur kebahasaan yang menonjol pada kalimat tersebut adalah...
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q2" value="0" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">A. Penggunaan kata sambung penanda urutan waktu (konjungsi kronologis).</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-lg border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q2" value="1" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">B. Penggunaan kata ganti orang pertama tunggal (aku/saya).</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q2" value="2" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">C. Penggunaan kata sifat/penggambaran objek yang kuat serta kata keterangan latar suasana ajaib.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q2" value="3" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">D. Penggunaan kalimat tanya retoris untuk pembaca.</span>
+                            </label>
+                        </div>
+                        <div id="expl-2" class="hidden p-3 rounded-lg text-xs mt-2 bg-purple-100 border border-purple-300 text-purple-950">
+                            <strong>Analisis:</strong> Jawaban benar adalah <strong>C</strong>. Kalimat tersebut kaya akan deskripsi inderawi dan detail keajaiban objek (cahaya ungu menyilaukan, kupu-kupu emas).
+                        </div>
+                    </div>
+
+                    <!-- Soal 4 -->
+                    <div class="bg-purple-50/50 p-5 rounded-2xl border border-purple-200 space-y-3 quiz-card" data-qid="3">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-fantasy-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 4 dari 5</span>
+                            <span class="text-xs text-gray-500 font-medium">Level: Evaluasi Resolusi Cerita</span>
+                        </div>
+                        <p class="font-bold text-gray-800 text-sm sm:text-base">
+                            Dalam sebuah cerita fantasi, bagian Resolusi yang baik dan bermakna bagi pembaca remaja adalah...
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q3" value="0" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">A. Tokoh utama tiba-tiba terbangun dan menyadari itu semua hanyalah mimpi buruk tanpa pesan apapun.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q3" value="1" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">B. Masalah terselesaikan melalui keberanian, kerja sama, dan pelajaran berharga yang dipetik tokoh utama.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q3" value="2" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">C. Konflik dibiarkan menggantung tanpa kejelasan akhir cerita.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q3" value="3" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">D. Tokoh utama menyerah dan kalah dari penjahat sihir.</span>
+                            </label>
+                        </div>
+                        <div id="expl-3" class="hidden p-3 rounded-lg text-xs mt-2 bg-purple-100 border border-purple-300 text-purple-950">
+                            <strong>Analisis:</strong> Jawaban benar adalah <strong>B</strong>. Resolusi yang ideal menunjukkan penyelesaian konflik logis dalam bingkai fantasi yang memuat nilai karakter positif.
+                        </div>
+                    </div>
+
+                    <!-- Soal 5 -->
+                    <div class="bg-purple-50/50 p-5 rounded-2xl border border-purple-200 space-y-3 quiz-card" data-qid="4">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-fantasy-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 5 dari 5</span>
+                            <span class="text-xs text-gray-500 font-medium">Level: Penalaran Kreatif Komprehensif</span>
+                        </div>
+                        <p class="font-bold text-gray-800 text-sm sm:text-base">
+                            Mengapa unsur keajaiban atau kemustahilan menjadi syarat mutlak yang membedakan teks cerita fantasi dengan teks narasi lainnya (seperti cerita pendek pengalaman pribadi)?
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q4" value="0" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">A. Agar penulis dapat membebaskan daya imajinasi tanpa terikat hukum alam nyata.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q4" value="1" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">B. Agar cerita lebih membingungkan pembaca.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q4" value="2" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">C. Agar buku cerita terlihat lebih tebal.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q4" value="3" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">D. Supaya mudah diadaptasi menjadi film animasi Hollywood.</span>
+                            </label>
+                        </div>
+                        <div id="expl-4" class="hidden p-3 rounded-lg text-xs mt-2 bg-purple-100 border border-purple-300 text-purple-950">
+                            <strong>Analisis:</strong> Jawaban benar adalah <strong>A</strong>. Karakteristik utama cerita fantasi adalah mendobrak hukum realitas melalui imajinasi kreatif penciptanya.
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Tombol Cek Kuis -->
+                <div class="mt-6 pt-4 border-t border-gray-200 flex flex-wrap justify-between items-center gap-4">
+                    <button onclick="submitQuiz()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl transition shadow-md text-sm flex items-center space-x-2">
+                        <i class="fa-solid fa-check-to-slot"></i>
+                        <span>Cek Jawaban & Analisis</span>
+                    </button>
+                    <div id="quiz-result-box" class="hidden text-right">
+                        <span class="text-xs text-gray-500 block">Skor Kuis Anda:</span>
+                        <span id="quiz-score-display" class="text-xl font-bold text-emerald-600">0 / 5 (0%)</span>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-start">
+                    <button onclick="switchTab('game')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Kembali ke Mini-Game
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-purple-100 py-4 mt-8 text-center text-xs text-gray-500">
+        <p>Media Pembelajaran Interaktif Bahasa Indonesia Kelas 7 Kurikulum Merdeka &copy; 2026 • Teks Cerita Fantasi</p>
+    </footer>
+
+    <!-- JavaScript Interaktif -->
+    <script>
+        // Navigasi Tab
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-white/20', 'text-white');
+                btn.classList.add('text-purple-200', 'hover:bg-white/10');
+            });
+
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if(activeBtn) {
+                activeBtn.classList.remove('text-purple-200', 'hover:bg-white/10');
+                activeBtn.classList.add('bg-white/20', 'text-white');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Data Mini-Game Menyusun Alur Cerita
+        const gameStages = [
+            {
+                stageName: "Tahap 1: Struktur Orientasi",
+                instruction: "Pilih kalimat yang paling tepat sebagai bagian awal (Orientasi) untuk mengenalkan tokoh dan latar dunia fantasi!",
+                options: [
+                    { text: "Di sebuah desa terapung di atas awan bernama Aethelgard, tinggal seorang anak penyihir bernama Tio.", correct: true },
+                    { text: "Tiba-tiba naga raksasa menyerang kota dan menghancurkan seluruh bangunan istana dalam sekejap.", correct: false },
+                    { text: "Akhirnya Tio berhasil menemukan batu permata ajaib dan kembali ke rumah dengan selamat.", correct: false }
+                ],
+                explanation: "Tepat! Bagian orientasi berfungsi mengenalkan tokoh (Tio) dan latar tempat (desa terapung Aethelgard)."
+            },
+            {
+                stageName: "Tahap 2: Struktur Komplikasi",
+                instruction: "Pilih kalimat yang menunjukkan timbulnya masalah (Komplikasi) dalam cerita fantasi!",
+                options: [
+                    { text: "Tio hidup bahagia bersama keluarganya di pagi hari yang cerah.", correct: false },
+                    { text: "Tanpa diduga, tongkat sihir pusaka desa direbut oleh Bayangan Hitam dan membuat langit menjadi gelap gulita.", correct: true },
+                    { text: "Semua warga merayakan keberhasilan Tio dengan pesta kembang api magis.", correct: false }
+                ],
+                explanation: "Hebat! Perebutan tongkat sihir dan langit yang gelap adalah awal mula masalah (komplikasi)."
+            },
+            {
+                stageName: "Tahap 3: Struktur Resolusi",
+                instruction: "Pilih kalimat yang tepat untuk menutup cerita sebagai bagian penyelesaian (Resolusi)!",
+                options: [
+                    { text: "Tio mulai berpetualang memasuki hutan larangan yang penuh kabut.", correct: false },
+                    { text: "Dengan keberanian dan bantuan burung phoenix, Tio berhasil merebut kembali tongkat sihir dan memulihkan kedamaian desa.", correct: true },
+                    { text: "Tiba-tiba guntur menyambar dan bumi bergetar hebat.", correct: false }
+                ],
+                explanation: "Luar biasa! Keberhasilan menyelesaikan misi dan pulihnya kedamaian adalah ciri struktur resolusi."
+            }
+        ];
+
+        let currentGameStage = 0;
+        let gameScore = 0;
+
+        fnLoadGameStage();
+
+        function fnLoadGameStage() {
+            if(currentGameStage >= gameStages.length) {
+                document.getElementById('game-container').classList.add('hidden');
+                document.getElementById('game-complete').classList.remove('hidden');
+                document.getElementById('game-score').innerText = gameScore;
+                return;
+            }
+
+            const current = gameStages[currentGameStage];
+            document.getElementById('game-progress').innerText = `${currentGameStage + 1} / ${gameStages.length}`;
+            document.getElementById('game-score').innerText = gameScore;
+            document.getElementById('game-stage-badge').innerText = current.stageName;
+            document.getElementById('game-instruction').innerText = current.instruction;
+            
+            const optionsEl = document.getElementById('game-options');
+            optionsEl.innerHTML = '';
+            
+            const feedbackEl = document.getElementById('game-feedback');
+            feedbackEl.classList.add('hidden');
+
+            current.options.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = "p-4 text-left bg-white rounded-xl border border-purple-200 hover:border-fantasy-600 hover:bg-purple-50 transition text-sm font-medium text-gray-800 shadow-sm flex items-center space-x-3";
+                btn.innerHTML = `<i class="fa-solid fa-feather-pointed text-fantasy-600 text-lg"></i> <span>${opt.text}</span>`;
+                btn.onclick = () => handleGameAnswer(opt.correct, current.explanation);
+                optionsEl.appendChild(btn);
+            });
+        }
+
+        function handleGameAnswer(isCorrect, explanation) {
+            const feedbackEl = document.getElementById('game-feedback');
+            feedbackEl.classList.remove('hidden');
+            
+            if(isCorrect) {
+                gameScore += 35;
+                feedbackEl.className = "p-4 rounded-xl text-sm font-medium bg-emerald-100 border border-emerald-300 text-emerald-900";
+                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-700 mr-2"><strong>Pilihan Tepat!</strong> ${explanation}`;
+            } else {
+                feedbackEl.className = "p-4 rounded-xl text-sm font-medium bg-amber-100 border border-amber-300 text-amber-900";
+                feedbackEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-amber-700 mr-2"><strong>Kurang tepat.</strong> ${explanation}`;
+            }
+
+            const buttons = document.getElementById('game-options').querySelectorAll('button');
+            buttons.forEach(b => b.disabled = true);
+
+            setTimeout(() => {
+                currentGameStage++;
+                fnLoadGameStage();
+            }, 3500);
+        }
+
+        function resetGame() {
+            currentGameStage = 0;
+            gameScore = 0;
+            document.getElementById('game-container').classList.remove('hidden');
+            document.getElementById('game-complete').classList.add('hidden');
+            fnLoadGameStage();
+        }
+
+        // Evaluasi Kuis HOTS
+        function submitQuiz() {
+            const correctAnswers = [1, 1, 2, 1, 0]; // Indeks jawaban benar soal 0-4
+            let scoreCount = 0;
+
+            for(let i = 0; i < correctAnswers.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const explEl = document.getElementById(`expl-${i}`);
+                explEl.classList.remove('hidden');
+
+                if(selected && parseInt(selected.value) === correctAnswers[i]) {
+                    scoreCount++;
+                }
+            }
+
+            const percentage = Math.round((scoreCount / correctAnswers.length) * 100);
+            const resBox = document.getElementById('quiz-result-box');
+            const resDisplay = document.getElementById('quiz-score-display');
+            
+            resBox.classList.remove('hidden');
+            resDisplay.innerText = `${scoreCount} / ${correctAnswers.length} (${percentage}%)`;
+            
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
